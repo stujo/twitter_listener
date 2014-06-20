@@ -29,9 +29,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-# adding dotenv to hide secrets
+# adding dotenv to hide secrets, rspec, pry, factory_girl
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'pry'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password
