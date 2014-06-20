@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
 
+  has_many :searches
+
+  validates :uid, :token, :name, presence: true
+  validates :email, uniqueness: {case_sensitive: false}
+
 # for twitter log in
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
