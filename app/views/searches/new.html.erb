@@ -6,3 +6,15 @@
     <input type="submit" id="searchButton" value="Search">
   </form>
 </div>
+
+<h3>--------------------------------</h3>
+
+<div class= "container" ng-controller="SearchCtrl">
+	<h1 class="text-left">My Searches</h1>
+	<div class="row" ng-repeat="search in data.searches">
+		<h2>{{search.title}}</h2>
+		<div ng-repeat="result in search.results">
+		<ul><li>{{result}}</li></ul>
+		</div>
+	</div>
+</div>

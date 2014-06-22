@@ -1,1 +1,3 @@
+TwitterApp = angular.module("TwitterApp", []);
+
 
