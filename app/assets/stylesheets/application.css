@@ -20,3 +20,11 @@
 body {
 	padding-top: 75px;
 }
+
+/*adding styling suggestions from angular-ui to handle how href attributes link tags and routing. Suggested by angular-ui.*/
+.nav, 
+.pagination, 
+.carousel, 
+.panel-title a { 
+	cursor: pointer; 
+}
