@@ -1,3 +1,2 @@
-TwitterApp = angular.module("TwitterApp", []);
-
+TwitterApp = angular.module("TwitterApp", ['ui.bootstrap']);
 

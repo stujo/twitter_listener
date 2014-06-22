@@ -19,6 +19,16 @@
 		</div>			
 
 		<div class='col-xs-8'>
+
+			<accordion close-others="oneAtATime">
+				<accordion-group is-open="status.open">
+					<accordion-heading> Filter Results <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+					<accordion-heading>
+					<p>Location</p>
+					<p>DateTime</p>
+				</accordion-group>
+			</accordion>
+
 			<ul ng-repeat="result in data.searches[selectedSearch].results"><li>{{result}}</li></ul>
 		</div>
 	</div>
