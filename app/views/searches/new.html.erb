@@ -1,8 +1,35 @@
-<h1>New Search Page</h1>
-
-<div>
+<!-- <div>
 	<form>
     <input type="text" id="searchTerm">
     <input type="submit" id="searchButton" value="Search">
   </form>
+</div> -->
+
+<div class= "container" ng-controller="SearchCtrl">
+	<div class="row">
+		<div class="col-xs-3">
+				
+			<div class="row">
+				<h3 class="text-left">My Searches</h3>
+				<ul class="nav nav-pills nav-stacked" ng-repeat="search in data.searches">
+					<!-- adding ng-class and ng-click to display results of one search when search term is selected -->
+				<li ng-class="{active: $index==selectedSearch}"><a ng-click="selectSearch($index)" href="#">{{search.title}}</a></li>
+				</ul>
+			</div>
+		</div>			
+
+		<div class='col-xs-8'>
+
+			<accordion close-others="oneAtATime">
+				<accordion-group is-open="status.open">
+					<accordion-heading> Filter Results <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+					</accordion-heading>
+					<p>Location</p>
+					<p>DateTime</p>
+				</accordion-group>
+			</accordion>
+
+			<ul ng-repeat="result in data.searches[selectedSearch].results"><li>{{result}}</li></ul>
+		</div>
+	</div>
 </div>

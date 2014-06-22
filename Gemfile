@@ -21,6 +21,10 @@ gem 'turbolinks'
 
 # twitter omniauth for authentication
 gem 'omniauth-twitter'
+
+# twitter gem for search
+gem 'twitter', '~> 5.11.0'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

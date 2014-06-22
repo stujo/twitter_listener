@@ -1,0 +1,24 @@
+{
+  "name": "twitter_listener",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cmcilhenny/twitter_listener",
+  "authors": [
+    "courtney mcilhenny <github@courtneymcilhenny>"
+  ],
+  "description": "a project to create a twitter search app",
+  "license": "Copyright Courtney McIlhenny.",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "bootstrap": "~3.1.1",
+    "angular-bootstrap": "0.11.0"
+  }
+}
