@@ -28,3 +28,25 @@ body {
 .panel-title a { 
 	cursor: pointer; 
 }
+
+input.search-bar {
+    padding-left:26px;
+}
+
+form.form-search {
+    position: relative;
+}
+
+form.form-search:before {
+    content:'';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-image: url(http://getbootstrap.com/2.3.2/assets/img/glyphicons-halflings.png);
+    background-position: -48px 0;
+    position: absolute;
+    top:10px;
+    left:20px;
+    opacity: .5;
+    z-index: 1000;
+}
