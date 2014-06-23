@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
       user.location = auth["info"]["location"]
       user.image = auth["info"]["image"]
       user.token = auth["credentials"]["token"]
+      user.secret = auth["credentials"]["secret"]
     end
   end
 end
