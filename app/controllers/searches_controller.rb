@@ -3,6 +3,10 @@ class SearchesController < ApplicationController
 
   def index
     @searches = Search.all
+
+    respond_with(searches) do |format|
+      format.json { render :json => searches.as_json}
+    end
   end
 
   def show
