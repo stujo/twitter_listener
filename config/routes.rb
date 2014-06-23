@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
+  # TODO: pull out only routes you are using
   resources :searches, :users, :main
 
   match 'auth/twitter/callback', to: 'sessions#create', via: [:get, :post]

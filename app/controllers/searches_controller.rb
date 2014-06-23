@@ -15,7 +15,7 @@ class SearchesController < ApplicationController
       config.access_token_secret = current_user.secret
     end
     # use client to bring back tweets
-    # create empty array to fill with tweets
+    # create empty array to fill with  3 tweets (for now). TODO: update to handle lots of tweets
     search_results = []
     client.search("robots", :result_type => "recent").take(3).each do |tweet|
       search_results << tweet
