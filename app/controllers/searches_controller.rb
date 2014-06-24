@@ -36,8 +36,7 @@ class SearchesController < ApplicationController
   end
 
   def create 
-    @search = Search.new(search_params)
-
+    respond_with Search.create(search_params)
 
   end 
 
