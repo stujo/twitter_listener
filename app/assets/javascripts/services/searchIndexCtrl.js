@@ -17,7 +17,7 @@ SearchCtrl = function ($scope, $http, searchData) {
 		$scope.newSearch.search_terms = "";
 	};
 
-	$scope.updateSearch = function(index) {
+	$scope.updateSearch = function(selectedSeach) {
 		console.log("updatedSearch hit!")
 		searchData.updateSearch($scope.newSearch.screen_name);
 	};
