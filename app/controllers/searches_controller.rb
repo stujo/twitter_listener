@@ -37,6 +37,7 @@ class SearchesController < ApplicationController
   end
 
   def update
+
     respond_with do |format|
       if @search.update(search_params)
         format.json {head :no_content}

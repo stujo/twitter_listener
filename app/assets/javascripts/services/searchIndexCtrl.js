@@ -23,13 +23,11 @@ SearchCtrl = function ($scope, $http, searchData) {
 	};
 
 	$scope.deleteSearch = function(selectedSearch) {
-		$http.delete('/searches.json').success(function(data) {
+		$http.delete('./searches/' + selectedSearch + '.json').success(function(data) {
 			console.log("Search deleted.");
-			$scope.searchData.splice(selectedSearch, 1);
+			_.findWhere(searchData.data.search, {id: selectedSearch});
 		})
 	};
-
-
 }
 
 SearchCtrl.$inject = ['$scope', '$http', 'searchData'];
