@@ -1,24 +1,11 @@
 SearchCtrl = function ($scope, $http, searchData) {
-	$scope.data = { 
-		searches: [
-			{
-				title: 'Robots', 
-				results: ['Loading Results...']
-			}
-		] 
-	};
+	$scope.data = searchData.data;
 
-	loadSearch = function() {
-		$http.get('./searches/1.json').success(function(data) {
-		$scope.data.searches = data;
-		console.log('Sucessfully loaded search results!');
-		console.log(data);
-		}).error(function() {
-			return console.log('Failed to load search results.')
-		});
-	};
+	searchData.loadSearch();
 
-	loadSearch();
+	$scope.addSearch = function() {
+		console.log($scope.newSearch);
+	};
 
 	$scope.viewSearchResults = function (searchId) {
 		$location.url('/searches/1');
