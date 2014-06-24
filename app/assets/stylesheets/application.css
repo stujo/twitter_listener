@@ -19,8 +19,12 @@
 
 body {
 	padding-top: 75px;
+    /*background-color: #F5F1D8;*/
 }
 
+.navbar-inverse {
+    /*background-color: #4D8963;  */
+}
 /*adding styling suggestions from angular-ui to handle how href attributes link tags and routing. Suggested by angular-ui.*/
 .nav, 
 .pagination, 
