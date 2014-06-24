@@ -12,15 +12,13 @@ SearchCtrl = function ($scope, $http, searchData) {
 		});
 	};
 
-	$scope.viewSearchResults = function (searchId) {
-		$location.url('/searches/1');
-	};
 // setting up var to select search terms
 	$scope.selectedSearch = null;
 // setting function to allow a particular searh term to be selected
 	$scope.selectSearch = function (index) {
 		$scope.selectedSearch = index;
 		searchData.selectedSearch = index;
+		searchData.loadTweets(index);
 	}
 
 }
