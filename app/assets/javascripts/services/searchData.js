@@ -38,6 +38,11 @@ angular.module('TwitterApp').factory('searchData', ['$http', function ($http) {
 		});
 
 	};
+
+	searchData.updateSearch = function(newSearch) {
+
+
+	};
 // factory needs to return your object for complete access to object, searchData. SearchData is a service.
 	return searchData;
 	

@@ -6,7 +6,7 @@
 				<h3 class="text-left">My Searches</h3>
 				<ul class="nav nav-pills nav-stacked" ng-repeat="search in data.searches">
 					<!-- adding ng-class and ng-click to display results of one search when search term is selected -->
-				<li ng-class="{active: search.id==selectedSearch}"><a ng-click="selectSearch(search.id)" href="#">{{search.search_terms}}</a></li>
+				<li ng-class="{active: search.id==selectedSearch}"><a ng-click="selectSearch(search.id)" href="#">{{search.search_terms}}</a><button ng-click="deleteSearch(search.id)" class="btn btn-default btn-sm pull-right col-xs-offset-4 deleteSearch"><span class="glyphicon glyphicon-remove"></span></button></li>
 				</ul>
 			</div>
 		</div>			
@@ -17,29 +17,29 @@
 				<accordion-group is-open="status.open">
 					<accordion-heading> Filter Results <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
 					</accordion-heading>
-					<form ng-submit="addFilter()" class="form-horizontal" role="form">
+					<form ng-submit="updateSearch(search.id)" class="form-horizontal" role="form">
 						<div class="form-group">
 							<label class="col-xs-4 control-label">Location</label>
 							<div class="col-xs-6 col-xs-offset-.5">
-								<input type="text" ng-model="newFilter.location" class="form-control">
+								<input type="text" ng-model="newSearch.location" class="form-control" placeholder="Location">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-xs-4 control-label">DateTime</label>
 							<div class="col-xs-6 col-xs-offset-.5">
-								<input type="text" ng-model="newFilter.DateTime" class="form-control">
+								<input type="text" ng-model="newSearch.publish_date" class="form-control" placeholder="Date/Time Filter">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-xs-4 control-label">Tweeter</label>
 							<div class="col-xs-6 col-xs-offset-.5">
-								<input type="text" ng-model="newFilter.tweeter" class="form-control">
+								<input type="text" ng-model="newSearch.screen_name" class="form-control" placeholder="Twitter Handle">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-xs-4 control-label">Edit Search</label>
 							<div class="col-xs-6 col-xs-offset-.5">
-								<input type="text" ng-model="newFilter.edit-search" class="form-control">
+								<input type="text" ng-model="newSearch.search_terms" class="form-control" placeholder="Edit Search Term">
 							</div>
 						</div>
 					</form>

@@ -36,6 +36,14 @@ class SearchesController < ApplicationController
   def edit
   end
 
+  def delete
+    @search.destroy
+
+    respond_with do |format|
+      format.json { head :no_content}
+    end
+  end
+
   def create 
     #create and save new search from user 
     new_search = Search.new
