@@ -20,6 +20,7 @@ SearchCtrl = function ($scope, $http, searchData) {
 // setting function to allow a particular searh term to be selected
 	$scope.selectSearch = function (index) {
 		$scope.selectedSearch = index;
+		searchData.selectedSearch = index;
 	}
 
 }
