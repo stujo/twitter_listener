@@ -1,13 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello. This is a simple app that allows for advanced searching of Twitter. Much of Twitter's website covers what is in this app. However, this project was a learning experience with certain goals in mind: create a functional single page app that I would use, integrate angular and rails, practive JavaScript, learn more about data structures and searching.
 
-Things you may want to cover:
+Things you may need to know:
 
-* Ruby version
+* Ruby version -- 2.1.1
+* Bower -- this application utilises Bower to help with dependency issues. Angular, Bootstrap, Underscore and Angular-UI/Angular-Bootstrap are all installed via a Bower dependencies. I hope this makes things easier for you!
 
-* System dependencies
+* API - In order for you to use this, a Twitter API Key and Secret are needed. You will have to register with Twitter to recieve these. To note, this used Twitter authentication to allow authenticated API calls. 
 
 * Configuration
 
@@ -24,5 +24,18 @@ Things you may want to cover:
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+For WDI Review Purposes, please note the following: 
+
+CORE REQUIREMENTS
+* **Testing: ** Tests are written in rspec and cover request and model specs. This app is a single pages app, though. 
+* **Authentication and Authentication: ** Login is handled via Twitter (and the OmniAuth Twitter gem).
+* **Handles invalid data: ** The only place for data input is via search. Users can search for whatever they like. Please note that validations are in place for Twitter authentication.
+* **Partials: ** A partial was used for the header/navbar. I chose not to use templates for angular since this really is a single page app and so angular templates are not needed.
+* **JavaScript & jQuery: ** AngularJs is used entirely for the front-end with JavaScript. I chose JavaScript over CoffeeScript to become more comforatble with JavaScript and because I like it more than CoffeeScript.
+* **CSS & Styling: ** The styling utilizes Bootstrap and angular as well as angular-ui.
+* **AJAX: ** AJAX is used for ev-er-y-thang.
+* **Advanced Rails: ** My first project utilised both advances search and file upload. I focused on utilising angular and implimenting my own search features as advanced work for this project.
+* **Ruby Gems: ** See README for Gems used.
+* **External APIs: ** This app uses the Twitter API.
+* **Heroku: ** See README above for heroku site.
+* **Documentation README.md: ** No words here.
