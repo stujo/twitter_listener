@@ -4,8 +4,8 @@ class SearchesController < ApplicationController
   def index
     @searches = Search.all
 
-    respond_with(searches) do |format|
-      format.json { render :json => searches.as_json}
+    respond_with(@searches) do |format|
+      format.json { render :json => @searches.as_json}
     end
   end
 
@@ -36,8 +36,23 @@ class SearchesController < ApplicationController
   end
 
   def create 
-    respond_with Search.create(search_params)
+    #create and save new search from user 
+    new_search = Search.new
+    new_search.search_terms = params[:search_terms]
+    new_search.user_id = current_user.id
 
+    # confirm search is valid
+    if new_search.valid?
+      new_search.save!
+    else
+      render "public/422", :status => 422
+      return
+    end
+
+    # respond with new search in json
+    respond_with(new_search) do |format|
+      format.json { render :json => new_search.as_json}
+    end
   end 
 
   private

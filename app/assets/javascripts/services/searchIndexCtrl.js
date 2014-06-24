@@ -5,6 +5,11 @@ SearchCtrl = function ($scope, $http, searchData) {
 
 	$scope.addSearch = function() {
 		console.log($scope.newSearch);
+		$http.post("./searches.json", $scope.newSearch).success(function(data) {
+			console.log("Search added to database!");
+			$scope.newSearch = {};
+			// return $scope.searches.push(data);
+		});
 	};
 
 	$scope.viewSearchResults = function (searchId) {
@@ -22,3 +27,6 @@ SearchCtrl = function ($scope, $http, searchData) {
 SearchCtrl.$inject = ['$scope', '$http', 'searchData'];
 
 
+TwitterApp.config(["$httpProvider", function($httpProvider) {
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+}]);
