@@ -10,12 +10,10 @@
 			<a class="navbar-brand" href="/">Listener</a>
 		</div>
 
-		<div class="collapse navbar-collapse" id="bar">
-			<form class="navbar-form navbar-left" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="search" name="search-terms">
-				</div>
-
+		<div class="collapse navbar-collapse" id="bar" ng-controller="SearchCtrl">
+			<form ng-submit="addSearch()" class="navbar-form navbar-left form-search" role="search">
+					<input type="search" ng-model="newSearch.search_terms" class="form-control search-bar" placeholder="search">
+					<!-- <button class="btn btn-success">GO!</button> -->
 			</form>
 
 			<ul class="nav navbar-brand navbar-right">
