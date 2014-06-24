@@ -36,6 +36,16 @@ class SearchesController < ApplicationController
   def edit
   end
 
+  def update
+    respond_with do |format|
+      if @search.update(search_params)
+        format.json {head :no_content}
+      else
+        format.json {render json: @search.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
   def delete
     @search.destroy
 
