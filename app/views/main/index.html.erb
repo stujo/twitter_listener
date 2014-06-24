@@ -45,8 +45,9 @@
 					</form>
 				</accordion-group>
 			</accordion>
-
-			<ul ng-repeat="tweet in data.tweets"><li>{{tweet.text}} - @{{tweet.user.screen_name}}</li></ul>
+			<blockquote class="twitter-tweet" data-cards="hidden">
+				<ul ng-repeat="tweet in data.tweets"><li>{{tweet.text}} - @{{tweet.user.screen_name}}</li></ul>
+			</blockquote>
 		</div>
 	</div>
 </div>
