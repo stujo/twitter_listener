@@ -5,6 +5,16 @@ angular.module('TwitterApp').factory('searchData', ['$http', function ($http) {
 		selectedSearch: null
 	};
 	
+	searchData.addSearch = function(newSearch) {
+		term = { search_terms: newSearch};
+		console.log(newSearch);
+		$http.post("./searches.json", term).success(function(data) {
+				console.log("Search added to database!");
+				console.log(data);
+				searchData.data.searches.push(data);
+		});
+	};
+
 	searchData.loadSearch = function() {
 		if (!searchData.isLoaded) {
 			$http.get('./searches.json').success(function(data) {
@@ -28,7 +38,7 @@ angular.module('TwitterApp').factory('searchData', ['$http', function ($http) {
 		});
 
 	};
-
+// factory needs to return your object for complete access to object, searchData. SearchData is a service.
 	return searchData;
 	
 }]);
