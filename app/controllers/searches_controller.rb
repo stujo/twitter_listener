@@ -40,10 +40,8 @@ class SearchesController < ApplicationController
     #pull up the new search object
     @search = Search.find(params[:id])
     # set the properties of search based on what came back from client update after checking that info was passed in.
-    @search[:location] =
-
     @search.update search_params
-
+    @search.save
     # respond with JSON
     respond_with do |format|
       if @search.update(search_params)
@@ -86,7 +84,7 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:search_terms, :user_id, :location, :screen_name, :publish_date, :latitude, :longitude)
+    params.require(:search).permit(:search_terms, :user_id, :geocode, :location, :screen_name, :publish_date, :latitude, :longitude)
   end
 
 end
