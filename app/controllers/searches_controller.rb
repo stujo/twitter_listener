@@ -22,8 +22,15 @@ class SearchesController < ApplicationController
     # use client to bring back tweets
     # create empty array to fill with  3 tweets (for now). TODO: update to handle lots of tweets
     search_results = []
-    client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en", :geocode => "#{@search.latitude},#{@search.longitude},5mi").take(10).each do |tweet|
-      search_results << tweet
+
+    if @search.location != nil
+      client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en", :geocode => "#{@search.latitude},#{@search.longitude},5mi").take(10).each do |tweet|
+        search_results << tweet
+      end
+    else
+      client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en").take(10).each do |tweet|
+        search_results << tweet
+      end
     end
     # return the tweets
     respond_with search_results
