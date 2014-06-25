@@ -22,7 +22,7 @@ class SearchesController < ApplicationController
     # use client to bring back tweets
     # create empty array to fill with  3 tweets (for now). TODO: update to handle lots of tweets
     search_results = []
-    client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en").take(10).each do |tweet|
+    client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en", :geocode => "#{@search.latitude},#{@search.longitude},5mi").take(10).each do |tweet|
       search_results << tweet
     end
     # return the tweets
@@ -41,11 +41,10 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
     # set the properties of search based on what came back from client update after checking that info was passed in.
     @search.update search_params
-    @search.save
     # respond with JSON
     respond_with do |format|
       if @search.update(search_params)
-        format.json {head :no_content}
+        format.json {  head :no_content}
       else
         format.json {render json: @search.errors, status: :unprocessable_entity}
       end
@@ -84,7 +83,7 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:search_terms, :user_id, :geocode, :location, :screen_name, :publish_date, :latitude, :longitude)
+    params.require(:search).permit(:search_terms, :user_id, :geocode, :location, :screen_name, :publish_date)
   end
 
 end
