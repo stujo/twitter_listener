@@ -20,7 +20,7 @@ SearchCtrl = function ($scope, $http, searchData) {
 	};
 
 	$scope.updateSearch = function() {
-		searchData.updateSearch(selectedSearchIndex);
+		searchData.updateSearch($scope.selectedSearchIndex);
 	};
 
 	$scope.deleteSearch = function(id, index) {

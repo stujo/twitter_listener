@@ -28,8 +28,8 @@ angular.module('TwitterApp').factory('searchData', ['$http', function ($http) {
 		}
 	};
 
-	searchData.loadTweets = function(index) {
-		$http.get('./searches/' + index + ".json").success(function(data) {
+	searchData.loadTweets = function(id) {
+		$http.get('./searches/' + id + ".json").success(function(data) {
 			searchData.data.tweets = data;
 			console.log('Tweet Success!');
 		}).error(function() {
@@ -39,9 +39,9 @@ angular.module('TwitterApp').factory('searchData', ['$http', function ($http) {
 	};
 
 	searchData.updateSearch = function(index) {
-		var search = searchData.data.searches[index]; 
+		var search = searchData.data.searches[index];
 		$http.put('./searches/' + search.id + '.json', { search: search }).success(function(data) {
-			searchData.loadTweets(index);
+			searchData.loadTweets(search.id);
 		}).error(function() {
 			return console.log('Update Failure.');
 		})
