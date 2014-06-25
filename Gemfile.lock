@@ -55,6 +55,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    geocoder (1.2.2)
     hashie (2.1.2)
     hike (1.2.3)
     http (0.6.1)
@@ -181,6 +182,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dotenv-rails
   factory_girl_rails
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-twitter

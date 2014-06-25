@@ -18,5 +18,4 @@ TwitterApp.config(["$httpProvider", function($httpProvider) {
 }]);
 
 // TODO: 
-// 1. do you need all three routes above? 
-// 2. does it make sense to have one controller for all?
+// 1. do you need all three routes above? no...need to clean up

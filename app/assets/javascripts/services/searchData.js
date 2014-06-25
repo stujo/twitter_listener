@@ -14,7 +14,7 @@ angular.module('TwitterApp').factory('searchData', ['$http', function ($http) {
 				searchData.data.searches.push(data);
 		});
 	};
-
+// this is where it begins...
 	searchData.loadSearch = function() {
 		if (!searchData.isLoaded) {
 			$http.get('./searches.json').success(function(data) {
@@ -28,14 +28,23 @@ angular.module('TwitterApp').factory('searchData', ['$http', function ($http) {
 		}
 	};
 
-	searchData.loadTweets = function(index) {
-		// _.findWhere(searchData.data.searches, {id: index});
-		$http.get('./searches/' + index + ".json").success(function(data) {
+	searchData.loadTweets = function(id) {
+		$http.get('./searches/' + id + ".json").success(function(data) {
 			searchData.data.tweets = data;
 			console.log('Tweet Success!');
 		}).error(function() {
 			return console.log('Tweet Failure.');
 		});
+
+	};
+
+	searchData.updateSearch = function(index) {
+		var search = searchData.data.searches[index];
+		$http.put('./searches/' + search.id + '.json', { search: search }).success(function(data) {
+			searchData.loadTweets(search.id);
+		}).error(function() {
+			return console.log('Update Failure.');
+		})
 
 	};
 // factory needs to return your object for complete access to object, searchData. SearchData is a service.
