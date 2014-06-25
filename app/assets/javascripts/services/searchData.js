@@ -40,7 +40,7 @@ angular.module('TwitterApp').factory('searchData', ['$http', function ($http) {
 
 	searchData.updateSearch = function(index) {
 		var search = searchData.data.searches[index]; 
-		$http.put('./searches/' + search.id + '.json', search).success(function(data) {
+		$http.put('./searches/' + search.id + '.json', { search: search }).success(function(data) {
 			searchData.loadTweets(index);
 		}).error(function() {
 			return console.log('Update Failure.');

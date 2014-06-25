@@ -37,7 +37,22 @@ class SearchesController < ApplicationController
   end
 
   def update
+    #pull up the new search object
+    @search = Search.find(params[:id])
+    # set the properties of search based on what came back from client update after checking that info was passed in.
+    if params[:search][:location] != null
+      search.location = params[:search][:location]
+    end
 
+    if params[:search][:screen_name] != null
+      search.screen_name = params[:search][:screen_name]
+    end
+
+     if params[:search][:publish_date] != null
+      search.publish_date = params[:search][:publish_date]
+    end
+
+    # respond with JSON
     respond_with do |format|
       if @search.update(search_params)
         format.json {head :no_content}
