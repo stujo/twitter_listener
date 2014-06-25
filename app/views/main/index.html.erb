@@ -50,9 +50,9 @@
 					</form>
 				</accordion-group>
 			</accordion>
-			<blockquote class="twitter-tweet" data-cards="hidden" data-conversation="none" data-link-color="#cc0000" data-theme="dark">
-				<ul ng-repeat="tweet in data.tweets"><li>{{tweet.text}} - @{{tweet.user.screen_name}}</li></ul>
-			</blockquote>
+			
+				<ul ng-repeat="tweet in data.tweets"><blockquote class="twitter-tweet" data-cards="hidden" data-conversation="none" ><a href="https://twitter.com/twitterapi/statuses/{{tweet.id_str}}"></a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></blockquote></ul>
+			
 		</div>
 	</div>
 </div>
