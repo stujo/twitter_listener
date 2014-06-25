@@ -22,7 +22,7 @@ class SearchesController < ApplicationController
     # use client to bring back tweets
     # create empty array to fill with  3 tweets (for now). TODO: update to handle lots of tweets
     search_results = []
-    client.search("#{@search.search_terms}", :result_type => "recent").take(3).each do |tweet|
+    client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en").take(6).each do |tweet|
       search_results << tweet
     end
     # return the tweets
@@ -47,7 +47,8 @@ class SearchesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @search = Search.find(params[:id])
     @search.destroy
 
     respond_with do |format|

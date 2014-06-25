@@ -5,11 +5,13 @@ SearchCtrl = function ($scope, $http, searchData) {
 
 	// setting up var to select search terms
 	$scope.selectedSearch = null;
+	$scope.selectedSearchIndex = null;
 // setting function to allow a particular searh term to be selected
-	$scope.selectSearch = function (index) {
-		$scope.selectedSearch = index;
-		searchData.selectedSearch = index;
-		searchData.loadTweets(index);
+	$scope.selectSearch = function (id, index) {
+		$scope.selectedSearch = id;
+		$scope.selectedSearchIndex = index;
+		searchData.selectedSearch = id;
+		searchData.loadTweets(id);
 	}
 
 	$scope.addSearch = function() {
@@ -17,15 +19,14 @@ SearchCtrl = function ($scope, $http, searchData) {
 		$scope.newSearch.search_terms = "";
 	};
 
-	$scope.updateSearch = function(selectedSeach) {
-		console.log("updatedSearch hit!")
-		searchData.updateSearch($scope.newSearch.screen_name);
+	$scope.updateSearch = function() {
+		searchData.updateSearch(selectedSearchIndex);
 	};
 
-	$scope.deleteSearch = function(selectedSearch) {
-		$http.delete('./searches/' + selectedSearch + '.json').success(function(data) {
+	$scope.deleteSearch = function(id, index) {
+		$http.delete('./searches/' + id + '.json').success(function(data) {
 			console.log("Search deleted.");
-			_.findWhere(searchData.data.search, {id: selectedSearch});
+			$scope.data.searches.splice(index, 1);
 		})
 	};
 }
