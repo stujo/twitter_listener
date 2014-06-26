@@ -53,11 +53,14 @@ form.form-search:before {
     opacity: .5;
     z-index: 1000;
 }
-/*attemping to pretty up delete button*/
+/*attemping to pretty up delete button/old style*/
 .deleteSearch {
     border: none;
 }
 
-.something:hover {
-    background: #f0f;
+/*attempt to fix pills/buttons for search term display*/
+.btn-group {
+    margin-bottom: 5px;
+    margin-right: 5px;
+   
 }
