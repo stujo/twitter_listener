@@ -15,6 +15,7 @@
 	  				</button>
 	  			
 	  			</div>
+	  			<!-- old styling(I'm not ready to delete..) -->
 				<!-- 	<ul class="nav nav-pills nav-stacked" ng-repeat="search in data.searches"> -->
 						<!-- adding ng-class and ng-click to display results of one search when search term is selected -->
 					<!-- <li ng-class="{active: search.id==selectedSearch}"> -->
@@ -49,7 +50,10 @@
 							<div class="form-group">
 								<label class="col-xs-4 control-label">Tweeter</label>
 								<div class="col-xs-6 col-xs-offset-.5">
-									<input type="text" ng-model="data.searches[selectedSearchIndex].screen_name" class="form-control" placeholder="Twitter Handle">
+									<div class="input-group">
+										<span class="input-group-addon">@</span>
+										<input type="text" ng-model="data.searches[selectedSearchIndex].screen_name" class="form-control" placeholder="Twitter Handle">
+									</div>
 								</div>
 							</div>
 							<div class="form-group">
