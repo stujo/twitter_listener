@@ -18,8 +18,12 @@
 /*adding top padding to push body down for navbar*/
 body {
 	padding-top: 75px;
+    /*background-color: #F5F1D8;*/
 }
 
+.navbar-inverse {
+    /*background-color: #4D8963;  */
+}
 /*adding styling suggestions from angular-ui to handle how href attributes link tags and routing. Suggested by angular-ui.*/
 .nav, 
 .pagination, 
@@ -49,11 +53,21 @@ form.form-search:before {
     opacity: .5;
     z-index: 1000;
 }
-/*attemping to pretty up delete button*/
+/*attemping to pretty up delete button/old style*/
 .deleteSearch {
     border: none;
 }
 
-.something:hover {
-    background: #f0f;
+/*attempt to fix pills/buttons for search term display*/
+.btn-group {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+a {
+    color: #473F63;
+}
+
+.glyphicon-remove {
+    color: #D6DBC5;
 }

@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
   respond_to :json
 
   def index
-    @searches = Search.all
+    @searches = current_user.searches.all
 
     respond_with(@searches) do |format|
       format.json { render :json => @searches.as_json}
@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @search = Search.find(params[:id])
+    @search = current_user.searches.find(params[:id])
     # use this to load tweets and send search results for one search:
     # create a client
     client = Twitter::REST::Client.new do |config|
@@ -20,18 +20,41 @@ class SearchesController < ApplicationController
       config.access_token_secret = current_user.secret
     end
     # use client to bring back tweets
-    # create empty array to fill with  3 tweets (for now). TODO: update to handle lots of tweets
+    # create empty array to fill with tweets that are displayed. 
     search_results = []
+    # conditionals to load search results from twitter: 
+   
+    # if screen_name is a filter...
+    if @search.screen_name and @search.screen_name.length > 1
+      # query the twitter api timeline and set to tweet variable
+      tweets = client.user_timeline("#{@search.screen_name}", {count: 200, include_rts: false})
 
-    if @search.location != nil
-      client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en", :geocode => "#{@search.latitude},#{@search.longitude},5mi").take(10).each do |tweet|
-        search_results << tweet
+      # regex from google for handling multiple search terms
+      search_regex = "^"
+      @search.search_terms.split.each do |term|
+        search_regex += '(?=.*\b'+term+'\b)'
       end
-    else
-      client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en").take(10).each do |tweet|
-        search_results << tweet
+      search_regex += '.*$'
+
+      # filter tweets from user using regex
+      filtered_tweets = tweets.select do |tweet|
+        Regexp.new(search_regex, true).match(tweet.full_text)
       end
+      # respond with json for loading
+      respond_with filtered_tweets
+      return
     end
+
+    if @search.location and @search.location.length > 1
+      location = "#{@search.latitude},#{@search.longitude},5mi"
+    else
+      location = nil
+    end
+
+    client.search("#{@search.search_terms} #{@search.screen_name}", :result_type => "recent", :lang => "en", :geocode => "#{location}").take(30).each do |tweet|
+        search_results << tweet
+    end
+    
     # return the tweets
     respond_with search_results
   end
