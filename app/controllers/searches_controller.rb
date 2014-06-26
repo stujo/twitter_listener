@@ -20,13 +20,15 @@ class SearchesController < ApplicationController
       config.access_token_secret = current_user.secret
     end
     # use client to bring back tweets
-    # create empty array to fill with  3 tweets (for now). TODO: update to handle lots of tweets
+    # create empty array to fill with tweets that are displayed. 
     search_results = []
-
+    # conditional to load search results from twitter: 
+    #if the location filter is not nil, add it to the search params
     if @search.location != nil
       client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en", :geocode => "#{@search.latitude},#{@search.longitude},5mi").take(10).each do |tweet|
         search_results << tweet
       end
+      #else, don't add location to search params.
     else
       client.search("#{@search.search_terms}", :result_type => "recent", :lang => "en").take(10).each do |tweet|
         search_results << tweet
