@@ -11,10 +11,12 @@
 		</div>
 
 		<div class="collapse navbar-collapse" id="bar" ng-controller="SearchCtrl">
-			<form ng-submit="addSearch()" class="navbar-form navbar-left form-search" role="search">
-					<input type="search" ng-model="newSearch.search_terms" class="form-control search-bar" placeholder="search">
-					<!-- <button class="btn btn-success">GO!</button> -->
-			</form>
+			<% if current_user %>
+				<form ng-submit="addSearch()" class="navbar-form navbar-left form-search" role="search">
+						<input type="search" ng-model="newSearch.search_terms" class="form-control search-bar" placeholder="search">
+						<!-- <button class="btn btn-success">GO!</button> -->
+				</form>
+			<%end%>
 
 			<ul class="nav navbar-brand navbar-right">
 				<% if current_user %>
