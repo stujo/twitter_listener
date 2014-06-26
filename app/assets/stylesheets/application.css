@@ -21,8 +21,13 @@ body {
     /*background-color: #F5F1D8;*/
 }
 
-.navbar-inverse {
-    /*background-color: #4D8963;  */
+.navbar {
+    background-color: #114173;  
+}
+
+#signin,
+#signout {
+    color: #CA4F46;
 }
 /*adding styling suggestions from angular-ui to handle how href attributes link tags and routing. Suggested by angular-ui.*/
 .nav, 
@@ -69,5 +74,5 @@ a {
 }
 
 .glyphicon-remove {
-    color: #D6DBC5;
+    color: #AAA;
 }

@@ -20,10 +20,10 @@
 
 			<ul class="nav navbar-brand navbar-right">
 				<% if current_user %>
-					Signed in as @<%= current_user.nickname %>
-					<%= link_to "Sign Out", signout_path %>
+					@<%= current_user.nickname %> |
+					<%= link_to "Sign Out", signout_path, :id => "signout"%>
 				<% else %>
-					<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+					<%= link_to "Sign in with Twitter", "/auth/twitter", :id => "signin" %>
 				<% end %>
 			</ul>
 		</div>
