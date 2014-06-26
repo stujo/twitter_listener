@@ -28,7 +28,7 @@
 			<div class='col-xs-8'>
 
 				<accordion close-others="oneAtATime">
-					<accordion-group is-open="status.open">
+					<accordion-group is-open="status.open" is-disabled="!selectedSearch">
 						<accordion-heading> Filter Results <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
 						</accordion-heading>
 						<form class="form-horizontal" role="form">
