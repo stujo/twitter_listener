@@ -9,7 +9,7 @@ Things you may need to know:
 
 * API - In order for you to use this, a Twitter API Key and Secret are needed. You will have to register with Twitter to recieve these. To note, this used Twitter authentication to allow authenticated API calls (once you get your own API keys, everything is already set up for you!). 
 
-* USE THIS -- If you are interested in using this, just fork & clone. Then rake db:create and migrate. Add your own .env with Twitter API keys and a secret key base.
+* USE -- If you are interested in using this, just fork & clone. Then rake db:create and migrate. Add your own .env with Twitter API keys and a secret key base.
 
 * Tests -- All tests can be run in rspec.
 
