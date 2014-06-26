@@ -6,23 +6,24 @@
 					
 				<div class="row">
 					<h3 class="text-left">My Searches</h3>
-					<div class="btn-group" ng-repeat="search in data.searches">
-					
-	  				<button type="button" class="btn btn-info btn-lg" ng-class="{active: search.id==selectedSearch}"><a ng-click="selectSearch(search.id, $index)" href="#">{{search.search_terms}}</a></button>
-	 					<button ng-click="deleteSearch(search.id, $index)" type="button" class="btn btn-info dropdown-toggle btn-lg" data-toggle="dropdown">
-		    			<span class="glyphicon glyphicon-remove"></span>
-		    			<!-- <span class="sr-only">Toggle Dropdown</span> -->
-	  				</button>
-	  			
-	  			</div>
+				<!-- 	<div ng-repeat="search in data.searches">
+						<div class="btn-group" >
+						
+		  				<button type="button" class="btn btn-info" ng-class="{active: search.id==selectedSearch}"><a ng-click="selectSearch(search.id, $index)" href="#">{{search.search_terms | limitTo:20}}</a></button>
+		 					<button ng-click="deleteSearch(search.id, $index)" type="button" class="btn btn-info dropdown-toggle " data-toggle="dropdown">
+			    			<span class="glyphicon glyphicon-remove"></span>
+		  				</button>
+		  			</div>
+	  			</div> -->
 	  			<!-- old styling(I'm not ready to delete..) -->
-				<!-- 	<ul class="nav nav-pills nav-stacked" ng-repeat="search in data.searches"> -->
+					<ul class="nav nav-pills nav-stacked" ng-repeat="search in data.searches">
 						<!-- adding ng-class and ng-click to display results of one search when search term is selected -->
-					<!-- <li ng-class="{active: search.id==selectedSearch}"> -->
-					<!-- 	<a ng-click="selectSearch(search.id, $index)" href="#">{{search.search_terms}}</a> --> 
-						<!-- <button ng-click="deleteSearch(search.id, $index)" class="btn btn-default btn-sm pull-right col-xs-offset-4 deleteSearch"><span class="glyphicon glyphicon-remove"></span></button></li>
+						<li ng-class="{active: search.id==selectedSearch}">
+							<a ng-click="selectSearch(search.id, $index)" href="#">{{search.search_terms}} 
+							<span ng-click="deleteSearch(search.id, $index)" class="glyphicon glyphicon-remove pull-right"></span></a>
+						</li>
 
-					</ul> -->
+					</ul>
 				</div>
 			</div>			
 
