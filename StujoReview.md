@@ -8,9 +8,7 @@ Project: twitter_listener
 * GITHUB: [https://github.com/cmcilhenny/twitter_listener](https://github.com/cmcilhenny/twitter_listener)
 
 # Summary
-
-Email validation in User model but not set up via oauth yet
-
+ A nice clean Twitter search client! Well done Courtney!!!
 
 ![Screenshot](screenshot.png)
 
@@ -41,6 +39,7 @@ Email validation in User model but not set up via oauth yet
 * Authentication
 	*  Expectation: Appropriate helper methods defined
 	* Review: Rolled with ominauth_twitter nicely done!
+	* Email validation in User model but not set up via oauth yet
 	
 * Authorization
 	* Expectation: Authorization scheme is well-thought out and used correctly.
@@ -50,37 +49,34 @@ Email validation in User model but not set up via oauth yet
 	* Review:  Great use of server side calls to twitter
 * Testing
 	*  Expectation: Includes request specs.
-	* Review:__TODO__
+	* Review: Yes but failing email
 * Heroku
 	*  Expectation: Project is hosted on Heroku
-	* Review:__TODO__
-* JavaScript/jQuery
-	* Expectation: JS/jQuery is used to handle at least one interactive event after the window loads
-	* Review:__TODO__
+	* Review: Deployed
 
 ##Code Quality Expectations
 
 * Test Driven
 	* Expectation: In addition to models, requests have been tested for valid 	responses and valid data
-	* Review:__TODO__
+	* Review: Not really
 * Flexible / extensible / scalable
 	* Expectation: No database calls inside a loop
-	* Review:__TODO__
+	* Review: Yes
 * Well-commented
 	* Expectation: Comments are not sporadic. Comments address the "why".
-	* Review:__TODO__
+	* Review: Nicely commented
 * Well-formatted, Clean Project
 	* Expectation: No mix of tabs and spaces
-	* Review:__TODO__
+	* Review: Clean
 * Follows naming conventions
 	* Expectation: Naming follows best practices (semantic variable naming)
-	* Review:__TODO__
+	* Review: Yes
 * Secure
 	* Expectation: Authorization is implemented as well as authentication.  Athorization is achieved through controller methods or helpers that limit resources
-	* Review:__TODO__
+	* Review: Almost
 * Documenting Work
 	* Expectation: Public presentation of work involving key aspects of development process
-	* Review:__TODO__
+	* Review: Great Readme!
 	
 
 
