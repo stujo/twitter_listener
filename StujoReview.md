@@ -4,12 +4,13 @@ Project: twitter_listener
 ================================================
 #URLS
 
-* HEROKU: __TODO__: https://XXXXX.herokuapp.com/
-* GITHUB: __TODO__: https://github.com/XXXX/YYYY
+* HEROKU: [https://tweeterlistener.herokuapp.com/](https://tweeterlistener.herokuapp.com/)
+* GITHUB: [https://github.com/cmcilhenny/twitter_listener](https://github.com/cmcilhenny/twitter_listener)
 
 # Summary
 
-__TODO__
+Email validation in User model but not set up via oauth yet
+
 
 ![Screenshot](screenshot.png)
 
@@ -20,22 +21,33 @@ __TODO__
 
 * Models & Data Relationships
 	* Expectation: At least 2 related models
-	* Review: __TODO__
+	* Review: User and Search models, not a lot models but very appropriate
 * Handles Invalid Data
 	*  Expectation: Rails model validation for presence of necessary fields
-	* Review:__TODO__
+	* Review: Some validations, but search validation is missing, hard to do in
+	the header but possible, look at [http://parsleyjs.org/](http://parsleyjs.org/)
 * Views & Templates	
 	*  Expectation: Form partial used, but other duplication still exists
-	* Review:__TODO__
+	* Review: CDN usage of bootstrap is great and has appropriate schema //
+	however bootstrap js is included twice
+	Nice use of partials for code organization
+	Some empty files :)
+	No view helpers
+
+* Angular:
+    * Javascript compiled throught the asset pipeline
+    * Extra routes - looks like we can remove the routes completely   
+	
 * Authentication
 	*  Expectation: Appropriate helper methods defined
-	* Review:__TODO__
+	* Review: Rolled with ominauth_twitter nicely done!
+	
 * Authorization
 	* Expectation: Authorization scheme is well-thought out and used correctly.
-	* Review:__TODO__
+	* Review: Some holes, which we discussed
 * API
 	*  Expectation: An API call was made.
-	* Review:__TODO__
+	* Review:  Great use of server side calls to twitter
 * Testing
 	*  Expectation: Includes request specs.
 	* Review:__TODO__

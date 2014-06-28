@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe "Users Management" do 
+describe 'Users Management' do
 
   before :each do
-    subject {FactoryGirl.create(:user)}
+    subject { FactoryGirl.create(:user) }
   end
 
   describe 'signing in' do
